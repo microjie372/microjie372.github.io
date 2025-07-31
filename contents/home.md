@@ -1,4 +1,4 @@
-[![microjie372]](https://github.com/microjie372)
+[![microjie372](https://img.shields.io/badge/microjie372-github-blue?logo=github)](https://github.com/microjie372)
 
 I'm an upcoming first-year PhD student at the Department of Computer Science, University of California, Davis. Before this, I have received the B.S. degree and the M.S. degree in the School of Electronics and Information Engineering, Sun Yat-Sen University, in 2022 and 2025.
 <!-- currently pursuing a Master's degree in XX at the Department of XX, XX University, XX. -->
