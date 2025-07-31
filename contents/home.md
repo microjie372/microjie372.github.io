@@ -17,4 +17,4 @@ I'm an upcoming first-year PhD student at the Department of Computer Science, Un
 • GPA: 3.9/4.0 (89.5/100) 
 
 #### Research Interests  
-3D Gaussian Splatting, 3D Object Detection, Multi-dataset Fusion Detection, Autonomous Driving.
+Artificial Intelligence, 3D Gaussian Splatting, 3D Object Detection, Autonomous Driving.
