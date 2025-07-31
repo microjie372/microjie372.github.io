@@ -8,11 +8,11 @@ I'm an upcoming first-year PhD student at the Department of Computer Science, Un
 <!-- <code>XX@XX.XX</code> -->
 
 #### Education  
-**Sun Yat-sen University**, Master of Engineering (2022/09-2025/06) 
+**Sun Yat-sen University**, Master of Engineering (2022/09-2025/06) \
 • Major: Electronic Science and Technology  
 • GPA: 3.9/4.0 (89.0/100)   
 
-**Sun Yat-sen University**, Bachelor of Engineering (2018/08-2022/06) 
+**Sun Yat-sen University**, Bachelor of Engineering (2018/08-2022/06) \
 • Major: Microelectronic Science and Engineering   
 • GPA: 3.9/4.0 (89.5/100) 
 
