@@ -12,8 +12,11 @@ redirect_from:
 Education
 ======
 * Ph.D in Computer Science, University of California, Davis, 2030 (expected)
+  * GPA: 3.85/4.0
 * M.S. in Electronic Engineering, Sun Yat-sen University, 2025
+  * GPA: 3.9/4.0
 * B.S. in Electronic Engineering, Sun Yat-sen University, 2022
+  * GPA: 3.9/4.0
 
 Work experience
 ======
