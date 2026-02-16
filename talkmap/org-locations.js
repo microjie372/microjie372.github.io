@@ -1,22 +1,17 @@
 var addressPoints = [
   [
-    "Talk 1 on Relevant Topic in Your Field<br />UC San Francisco, Department of Testing; San Francisco, CA, USA",
-    37.7879363,
-    -122.4075201
+    "Excellent Undergraduate Degree Thesis<br />SYSU, School of Electronics and Information Technology; Guangzhou, China",
+    23.1288454,
+    113.2590064
   ],
   [
-    "Talk 2 on Relevant Topic in Your Field<br />London School of Testing; London, UK",
-    51.5074456,
-    -0.1277653
+    "Fellowship<br />UC Davis, Department of Computer Science; Davis, CA, USA",
+    38.5435526,
+    -121.739005
   ],
   [
-    "Tutorial 1 on Relevant Topic in Your Field<br />UC-Berkeley Institute for Testing Science; Berkeley, CA, USA",
-    37.8708393,
-    -122.272863
-  ],
-  [
-    "Conference Proceeding talk 3 on Relevant Topic in Your Field<br />Testing Institute of America 2014 Annual Conference; Los Angeles, CA, USA",
-    34.0536909,
-    -118.242766
+    "National Scholarship for Master\u2019s Students<br />SYSU, School of Electronics and Information Technology; Guangzhou, China",
+    23.1288454,
+    113.2590064
   ]
 ];
