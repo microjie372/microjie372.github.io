@@ -11,35 +11,26 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* Ph.D in Computer Science, University of California, Davis, 2030 (expected)
+* M.S. in Electronic Engineering, Sun Yat-sen University, 2025
+* B.S. in Electronic Engineering, Sun Yat-sen University, 2022
 
 Work experience
 ======
-* Spring 2024: Academic Pages Collaborator
-  * GitHub University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* Winter 2026: Teaching Assistant
+  * University of California, Davis
+  * Duties included: grading and leading discussions
 
-* Fall 2015: Research Assistant
-  * GitHub University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-
-* Summer 2015: Research Assistant
-  * GitHub University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Summer 2024: Algorithm Intern
+  * Beijing Novauto Technology Co., Ltd.
+  * Duties includes: multi-dataset 3d object detection algorithm design
   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Python, C/C++
+* Pytorch, OpenPCDet, OpenCV, Open3D, Point Cloud Library (PCL)
+* VMWare, Linux (Ubuntu), VS Code, Pycharm, Robot Operating System (ROS) 
+* Chinese Mandarin (native), English (fluent)
 
 Publications
 ======
