@@ -31,6 +31,10 @@ Work experience
 
 Publications
 ======
+- <strong>Zheng, Z.</strong>, Xiang, X., & Zhang, J*. (2026). TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction. <strong>arXiv</strong>. [[Paper]](https://arxiv.org/abs/2601.22615)[[Code]](https://github.com/anonus2357/ttsa3r)
+
+- <strong>Zheng, Z.</strong>, Huang, Z., Lin, K., Zhou, W., Qin, H., Chen, Y., Qiu, Z., Zhao, Y., & Chen, D*. (2026). UniPT: A Unified Representation Pre-Training for Multi-dataset 3D Object Detection. <strong>PRICAI 2025</strong>. [[Code]](https://github.com/microjie372/UniPT)
+
 - <strong>Zheng, Z.</strong>, Huang, Z., Zhao, J., Lin, K., Hu, H., & Chen, D*. (2025). RAFDet: Range View Augmented Fusion Network for Point-Based 3D Object Detection. <strong>IEEE Transactions on Multimedia</strong>. [[Paper]](https://doi.org/10.1109/TMM.2025.3535289)[[Code]](https://github.com/microjie372/RAFDet)
 
 - Huang, Z., Huang, Y., <strong>Zheng, Z.</strong>, Hu, H., & Chen, D*. (2024). Hybridpillars: Hybrid point-pillar network for real-time two-stage 3D object detection. <strong>IEEE Sensors Journal</strong>. [[Paper]](https://doi.org/10.1109/JSEN.2024.3468646)[[Code]](https://github.com/huangzhicong3/HybridPillars)
