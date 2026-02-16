@@ -3,7 +3,7 @@ title: "TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Str
 collection: publications
 category: conferences
 # permalink: /publication/2024-02-17-paper-title-number-4
-# excerpt: 'This paper is about fixing template issue #693.'
+excerpt: ''
 date: 2026-01-30
 venue: 'arXiv'
 paperurl: 'https://microjie372.github.io/files/TTSA3R.pdf'
