@@ -5,7 +5,7 @@ category: conferences
 #permalink: /publication/2024-02-17-paper-title-number-4
 excerpt: ''
 date: 2026-04-17
-venue: '22nd Pacific Rim International Conference on Artificial Intelligence, PRICAI 2025'
+venue: '22nd Pacific Rim International Conference on Artificial Intelligence'
 # paperurl: 'https://microjie372.github.io/files/paper3.pdf'
 #citation: 'Your Name, You. (2024). &quot;Paper Title Number 3.&quot; <i>GitHub Journal of Bugs</i>. 1(3).'
 ---
