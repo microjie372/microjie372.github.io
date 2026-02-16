@@ -7,7 +7,7 @@ excerpt: ''
 date: 2023-06-06
 venue: 'IEEE Signal Processing Letters '
 # slidesurl: 'https://academicpages.github.io/files/slides1.pdf'
-paperurl: 'https://microjie372.github.io/files/DTSSD.pdf'
+paperurl: 'https://academicpages.github.io/files/DTSSD.pdf'
 # bibtexurl: 'https://academicpages.github.io/files/bibtex1.bib'
 # citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
 ---
