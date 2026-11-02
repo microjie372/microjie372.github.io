@@ -294,6 +294,9 @@ defaults:
 
 sass:
   style: compressed
+  # Keep site partials under assets/_sass: jekyll-cache-bust hashes that folder for the main.css ?v= version,
+  # so every style change gets a new URL and browsers fetch it immediately.
+  sass_dir: assets/_sass
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier

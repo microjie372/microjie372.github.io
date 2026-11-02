@@ -15,8 +15,8 @@ Built with [Jekyll](https://jekyllrb.com/) and the [al-folio](https://github.com
 | News items | one Markdown file per item in `_news/` |
 | CV page | `_data/cv.yml`; the PDF button points to `assets/pdf/CV-Zhijie_ZHENG.pdf` |
 | Social icons | `_data/socials.yml` |
-| Colors (light and dark) | `_sass/_themes.scss` |
-| Fonts, cards, spacing | `_sass/_custom.scss`; font files are loaded in `_config.yml` (`google_fonts`) |
+| Colors (light and dark) | `assets/_sass/_themes.scss` |
+| Fonts, cards, spacing | `assets/_sass/_custom.scss`; font files are loaded in `_config.yml` (`google_fonts`) |
 | Site-wide settings | `_config.yml` |
 
 ## Deployment
