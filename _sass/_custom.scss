@@ -186,6 +186,14 @@ a {
   }
 }
 
+/* Desktop: lift the photo + contact card so the card's last line meets the bio's last line.
+   Offset measured on the built page (content width is fixed at 930px from 992px up). */
+@media (min-width: 992px) {
+  .profile.float-right {
+    margin-top: -81px;
+  }
+}
+
 /* Contact links listed under the profile photo */
 .contact-list {
   list-style: none;
