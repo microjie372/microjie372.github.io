@@ -97,7 +97,9 @@
   year          = {2024},
   month         = {nov},
   doi           = {10.1109/JSEN.2024.3468646},
-  code          = {https://github.com/huangzhicong3/HybridPillars}
+  code          = {https://github.com/huangzhicong3/HybridPillars},
+  preview       = {hybridpillars.jpg},
+  abstract      = {LiDAR-based 3-D object detection is an important perceptual task in various fields such as intelligent transportation, autonomous driving, and robotics. Existing two-stage point-voxel methods contribute to the boost of accuracy on 3-D object detection by utilizing precise pointwise features to refine 3-D proposals. Although obtaining promising results, these methods are not suitable for realtime applications. First, the inference speed of existing point-voxel hybrid frameworks is slow because the acquisition of point features from voxel features consumes a lot of time. Second, existing point-voxel methods rely on 3-D convolution for voxel feature learning, which increases the difficulty of deployment on embedded computing platforms. To address these issues, we propose a real-time two-stage detection network, named HybridPillars. We first propose a novel hybrid framework by integrating a point feature encoder into a point-pillar pipeline efficiently. By combining point-based and pillar-based networks, our method can discard 3-D convolution to reduce computational complexity. Furthermore, we propose a novel pillar feature aggregation network to efficiently extract bird's eye view (BEV) features from pointwise features, thereby significantly enhancing the performance of our network. Extensive experiments demonstrate that our proposed HybridPillars not only boosts the inference speed, but also achieves competitive detection performance compared to other methods.}
 }
 
 @article{zheng2023dtssd,
@@ -124,5 +126,7 @@
   pages         = {138--145},
   year          = {2023},
   month         = {apr},
-  doi           = {10.1016/j.patrec.2023.03.016}
+  doi           = {10.1016/j.patrec.2023.03.016},
+  preview       = {psadet3d.jpg},
+  abstract      = {Small object detection for 3D point cloud is a challenging problem because of two limitations: (1) The sparsity of point clouds significantly increases the difficulty of perceiving small objects. (2) The occlusion of small objects can easily break the shape of their point clouds. To alleviate these problems, we design a point-based detection network PSA-Det3D which mainly consists of a pillar set abstraction (PSA) and a foreground point compensation (FPC). The PSA improves the query approach of set abstraction, which benefits the point-wise feature aggregation for small objects. The FPC fuses the foreground points and the estimated centers to select the candidate points, which effectively improves the detection performance for occluded objects. Extensive experiments show that our proposed PSA-Det3D achieves higher performance on all categories. For small object detection, our method outperforms existing point based algorithms on the KITTI 3D detection benchmark.}
 }
