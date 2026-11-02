@@ -34,11 +34,7 @@ latest_posts:
 
 Hi! I am **Zhijie Zheng** (郑智杰), a second-year Ph.D. student in Computer Science at the University of California, Davis, advised by [Dr. Jiawei Zhang](https://jiaweizhang.net/).
 
-My research is in **3D computer vision**: recovering the 3D structure of a scene from images and videos, and rendering it from new viewpoints. I focus on **feed-forward 3D models**, which predict geometry and appearance in a single pass instead of optimizing each scene, and on making them more accurate, more stable, and faster. My current work follows three directions:
-
-- **Novel view synthesis.** Rendering high-quality new views from a frozen 3D foundation model while keeping its metric depth and pose predictions unchanged ([RDGSplat](https://arxiv.org/abs/2610.09173)).
-- **Streaming 3D reconstruction.** Keeping recurrent reconstruction models stable over long video sequences, without extra training ([TTSA3R](https://arxiv.org/abs/2601.22615), WACV 2027 LVR Workshop, Oral).
-- **Single-image 3D reconstruction.** Replacing slow diffusion sampling with fast geometric reasoning, turning one image into a 3D scene in 36 seconds instead of hours ([PRISM](https://arxiv.org/abs/2606.25430)).
+My research lies in **3D computer vision**, with the goal of building models that reconstruct and render the 3D world from images and videos. I am particularly interested in **feed-forward 3D models** that generalize across scenes without per-scene optimization. My current topics include **novel view synthesis**, **streaming 3D reconstruction** from long videos, and **single-image 3D reconstruction**.
 
 Before UC Davis, I received my B.S. (2022) and M.S. (2025) in Electronic Science from [Sun Yat-sen University](https://www.sysu.edu.cn/), where I worked on **LiDAR 3D object detection** for autonomous driving. In 2024, I was a research intern at Beijing Novauto Technology, working on multi-dataset LiDAR pre-training.
 
