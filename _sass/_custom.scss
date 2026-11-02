@@ -1,0 +1,424 @@
+/*******************************************************************************
+ * Site look: warm paper tones, serif display type, soft cards for publications.
+ * Loaded last from assets/css/main.scss.
+ * Colors come from the tokens in _sass/_themes.scss, so dark mode follows them.
+ ******************************************************************************/
+
+:root {
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, "PingFang SC",
+    "Microsoft YaHei", sans-serif;
+  --font-display: "Fraunces", Georgia, "Times New Roman", "Songti SC", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --radius-lg: 14px;
+  --radius-sm: 8px;
+  --accent-soft: rgba(168, 68, 31, 0.08);
+  --shadow-soft: 0 1px 2px rgba(60, 40, 20, 0.05), 0 6px 18px rgba(60, 40, 20, 0.06);
+  --shadow-lift: 0 2px 6px rgba(60, 40, 20, 0.08), 0 14px 30px rgba(60, 40, 20, 0.1);
+}
+
+html[data-theme="dark"] {
+  --accent-soft: rgba(232, 149, 107, 0.12);
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.35), 0 6px 18px rgba(0, 0, 0, 0.25);
+  --shadow-lift: 0 2px 6px rgba(0, 0, 0, 0.4), 0 14px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- Type ---------- */
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--global-theme-color);
+  color: var(--global-hover-text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+.post-title,
+.card-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--global-text-color);
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+code,
+pre,
+kbd {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.post article p a,
+.news td a,
+.post-description a,
+.desc a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--global-theme-color) 35%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+
+  &:hover {
+    text-decoration-color: var(--global-theme-color);
+  }
+}
+
+/* ---------- Navbar ---------- */
+
+.navbar {
+  opacity: 1;
+  background-color: color-mix(in srgb, var(--global-bg-color) 86%, transparent);
+  backdrop-filter: saturate(150%) blur(10px);
+  -webkit-backdrop-filter: saturate(150%) blur(10px);
+
+  .navbar-brand {
+    font-family: var(--font-display);
+    font-weight: 500;
+    color: var(--global-text-color);
+  }
+
+  .nav-link {
+    font-size: 0.98rem;
+    letter-spacing: 0.01em;
+    color: var(--global-text-color);
+    position: relative;
+  }
+
+  .nav-item.active > .nav-link {
+    color: var(--global-theme-color);
+    font-weight: 600;
+  }
+
+  .nav-item.active > .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.1rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--global-theme-color);
+  }
+
+  .nav-link:hover {
+    color: var(--global-theme-color);
+  }
+}
+
+/* ---------- Page headers ---------- */
+
+.post-header {
+  margin-bottom: 1.5rem;
+}
+
+.post-title {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+
+  .font-weight-bold {
+    font-weight: 600 !important;
+  }
+}
+
+.post .desc,
+.post-description {
+  color: var(--global-text-color-light);
+  font-size: 1.05rem;
+}
+
+/* Section headings on the about page ("news", "selected publications") */
+.post article > h2 {
+  font-size: 1.6rem;
+  margin-top: 2.25rem;
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  a {
+    text-decoration: none !important;
+  }
+
+  &::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--global-divider-color);
+  }
+}
+
+/* ---------- Profile photo ---------- */
+
+.profile {
+  img {
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-soft) !important;
+  }
+
+  .more-info {
+    font-family: var(--font-body);
+    color: var(--global-text-color-light);
+    font-size: 0.92rem;
+    margin-top: 0.6rem;
+
+    p {
+      display: block;
+      margin-bottom: 0.1rem;
+    }
+  }
+}
+
+/* ---------- News ---------- */
+
+.news {
+  table {
+    margin-bottom: 0;
+  }
+
+  th[scope="row"] {
+    width: 8.5rem !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--global-theme-color);
+    white-space: nowrap;
+    padding-top: 0.55rem;
+  }
+
+  td {
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+  }
+
+  tr + tr th,
+  tr + tr td {
+    border-top: 1px dashed var(--global-divider-color);
+  }
+}
+
+/* ---------- Publications ---------- */
+
+.publications {
+  h2.bibliography {
+    font-family: var(--font-display);
+    color: var(--global-text-color-light);
+    border-top: none;
+    font-size: 1.5rem;
+  }
+
+  ol.bibliography li {
+    background: var(--global-card-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: var(--radius-lg);
+    padding: 1.1rem 1.2rem 0.9rem;
+    margin-bottom: 1.1rem;
+    box-shadow: var(--shadow-soft);
+    transition:
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+
+    &:hover {
+      box-shadow: var(--shadow-lift);
+      transform: translateY(-1px);
+    }
+
+    .row {
+      align-items: flex-start;
+    }
+
+    /* Wider thumbnail column so method figures stay readable; text takes the rest. */
+    @media (min-width: 576px) {
+      .row > .abbr.col-sm-2 {
+        flex: 0 0 30%;
+        max-width: 30%;
+      }
+
+      .row > .col-sm-8,
+      .row > .col-sm-10 {
+        flex: 0 0 70%;
+        max-width: 70%;
+      }
+    }
+
+    .abbr {
+      abbr.badge {
+        border-radius: 999px !important;
+        font-family: var(--font-body);
+        font-weight: 600;
+        font-size: 0.78rem;
+        letter-spacing: 0.03em;
+        padding: 0.3rem 0.5rem;
+        color: #fff !important;
+
+        a,
+        div {
+          color: #fff !important;
+        }
+      }
+    }
+
+    .preview {
+      width: 100%;
+      border-radius: var(--radius-sm) !important;
+      border: 1px solid var(--global-divider-color);
+      background: #fff;
+      box-shadow: none !important;
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.08rem;
+      line-height: 1.35;
+      margin-bottom: 0.25rem;
+    }
+
+    .author {
+      font-size: 0.95rem;
+      color: var(--global-text-color);
+
+      > em {
+        font-weight: 600;
+        border-bottom: 2px solid var(--global-theme-color);
+      }
+    }
+
+    .periodical {
+      font-size: 0.93rem;
+      color: var(--global-text-color-light);
+    }
+
+    .links {
+      margin-top: 0.4rem;
+
+      a.btn {
+        border-radius: 999px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        padding: 0.22rem 0.8rem;
+        margin: 0.15rem 0.3rem 0.15rem 0;
+        color: var(--global-text-color);
+        border: 1px solid var(--global-divider-color);
+        background: transparent;
+
+        &:hover {
+          color: var(--global-hover-text-color);
+          background: var(--global-theme-color);
+          border-color: var(--global-theme-color);
+        }
+      }
+
+      a.award.btn {
+        color: var(--global-hover-text-color);
+        background: var(--global-highlight-color);
+        border-color: var(--global-highlight-color);
+      }
+    }
+
+    div.abstract.hidden,
+    div.award.hidden,
+    div.bibtex.hidden {
+      border: none !important;
+    }
+
+    .hidden.open {
+      border-radius: var(--radius-sm);
+      background: var(--accent-soft);
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+/* ---------- Social icons and contact note ---------- */
+
+.social {
+  margin-top: 2.5rem;
+
+  .contact-icons {
+    font-size: 1.9rem;
+
+    a {
+      margin: 0 0.45rem;
+    }
+  }
+
+  .contact-icons a {
+    color: var(--global-text-color);
+
+    &:hover {
+      color: var(--global-theme-color);
+    }
+  }
+
+  .contact-note {
+    color: var(--global-text-color-light);
+  }
+}
+
+/* ---------- CV page cards ---------- */
+
+.cv .card {
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Footer ---------- */
+
+footer.fixed-bottom,
+footer.sticky-bottom {
+  background-color: var(--global-footer-bg-color);
+  border-top: 1px solid var(--global-divider-color);
+  color: var(--global-footer-text-color);
+}
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 575.98px) {
+  .post-title {
+    font-size: 2.1rem;
+  }
+
+  .publications ol.bibliography li {
+    padding: 0.9rem 0.9rem 0.75rem;
+  }
+
+  .profile.float-right {
+    float: none !important;
+    width: 62% !important;
+    margin: 0 auto 1.25rem;
+    text-align: center;
+  }
+
+  .news th[scope="row"] {
+    width: 5.6rem !important;
+    font-size: 0.75rem;
+    padding-left: 0;
+  }
+}

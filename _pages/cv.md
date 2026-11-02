@@ -1,58 +1,12 @@
 ---
-layout: archive
-title: "CV"
+layout: cv
 permalink: /cv/
-author_profile: true
-redirect_from:
-  - /resume
+title: CV
+nav: true
+nav_order: 2
+cv_pdf: /assets/pdf/CV-Zhijie_ZHENG.pdf
+cv_format: rendercv # options: rendercv, jsonresume
+description: Education, research, experience and honors. The full CV can be downloaded as a PDF.
+toc:
+  sidebar: left
 ---
-
-{% include base_path %}
-
-Education
-======
-* Ph.D in Computer Science, University of California, Davis, 2030 (expected)
-  * GPA: 3.85/4.0
-* M.S. in Electronic Engineering, Sun Yat-sen University, 2025
-  * GPA: 3.9/4.0
-* B.S. in Electronic Engineering, Sun Yat-sen University, 2022
-  * GPA: 3.9/4.0
-
-Work experience
-======
-* Winter 2026: Teaching Assistant
-  * University of California, Davis
-  * Duties included: grading and leading discussions
-
-* Summer 2024: Algorithm Intern
-  * Beijing Novauto Technology Co., Ltd.
-  * Duties includes: multi-dataset 3d object detection algorithm design
-  
-Skills
-======
-* Python, C/C++
-* Pytorch, OpenPCDet, OpenCV, Open3D, Point Cloud Library (PCL)
-* VMWare, Linux (Ubuntu), VS Code, Pycharm, Robot Operating System (ROS) 
-* Chinese Mandarin (native), English (fluent)
-
-Publications
-======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-<!-- Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul> -->
-  
-<!-- Experience
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul> -->
-  
-<!-- Service and leadership
-======
-* Currently signed in to 43 different slack teams -->

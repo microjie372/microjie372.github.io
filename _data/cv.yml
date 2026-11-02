@@ -1,0 +1,130 @@
+# CV page data (RenderCV-style). Rendered by the al_folio_cv plugin on /cv/.
+# Keep this in sync with assets/pdf/CV-Zhijie_ZHENG.pdf.
+cv:
+  name: Zhijie Zheng
+  label: Ph.D. Student in Computer Science, University of California, Davis
+  email: zhjzheng@ucdavis.edu
+  website: https://microjie372.github.io
+
+  sections:
+    Education:
+      - institution: University of California, Davis
+        location: Davis, CA, USA
+        url: https://www.ucdavis.edu/
+        area: Computer Science
+        studyType: Ph.D.
+        start_date: 2025-09
+        end_date: 2030-06 (expected)
+        highlights:
+          - "Advisor: [Dr. Jiawei Zhang](https://jiaweizhang.net/)"
+          - "GPA: 3.9/4.0"
+
+      - institution: Sun Yat-sen University
+        location: Guangzhou, China
+        url: https://www.sysu.edu.cn/
+        area: Electronic Science
+        studyType: M.S.
+        date: 2025-06
+        highlights:
+          - "GPA: 3.9/4.0"
+
+      - institution: Sun Yat-sen University
+        location: Guangzhou, China
+        url: https://www.sysu.edu.cn/
+        area: Electronic Science
+        studyType: B.S.
+        date: 2022-06
+        highlights:
+          - "GPA: 3.9/4.0"
+
+    Experience:
+      - company: University of California, Davis
+        position: Teaching Assistant, ECS 122B Algorithm Design and Analysis
+        location: Davis, CA, USA
+        date: 2026-01
+        highlights:
+          - Graded assignments and led discussion sections.
+
+      - company: Beijing Novauto Technology
+        position: Research Intern, LiDAR 3D Perception
+        location: Beijing, China
+        date: 2024-03
+        highlights:
+          - Developed a multi-task pretraining framework for multi-dataset LiDAR detection, combining masked point reconstruction and occupancy prediction with cross-dataset attention to align dataset-specific features.
+          - Enabled joint training across Waymo, nuScenes, and KITTI by addressing sensor and scene discrepancies that cause naive multi-dataset training to underperform.
+          - Outperformed Uni3D (CVPR 2023) by 2.29 mAPH on Waymo, 1.45 BEV mAP on nuScenes, and 2.08 3D mAP on KITTI; improved Waymo mAPH by 8.85 over single-dataset training using only 1% of Waymo training labels. Published at PRICAI 2025 (co-first author).
+
+    Projects:
+      - name: "RDGSplat: Render-Dedicated Geometry for Novel View Synthesis"
+        url: https://arxiv.org/abs/2610.09173
+        start_date: 2026-07
+        end_date: present
+        summary: UC Davis. Zheng et al., arXiv preprint, 2026.
+        highlights:
+          - Developed a parallel decoder branch predicting additional 3D Gaussians for novel-view rendering on a frozen 1.4B 3D foundation model, with a target-pose-conditioned adapter and photometric-only supervision.
+          - Preserved depth and pose predictions, unlike backbone fine-tuning, with only 205M (14.7%) trainable parameters.
+          - Improved RE10K PSNR from 20.9 to 25.1 dB and zero-shot PSNR by 2.7–3.8 dB on ACID, DL3DV, and DTU, outperforming pixelSplat and MVSplat on RE10K and DTU; gains held across three backbones.
+
+      - name: "PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling"
+        url: https://arxiv.org/abs/2606.25430
+        date: 2026-02
+        summary: UC Davis. Zheng et al., arXiv preprint, 2026.
+        highlights:
+          - Built a feed-forward single-image 3D reconstruction pipeline that forward-warps input latents to target views using monocular depth, with a 26M transformer predicting residuals for LYRA's frozen 3DGS decoder.
+          - Eliminated diffusion sampling at inference, the main bottleneck of diffusion-based methods; geometric warping covers up to 90% of the target view, so diffusion supervision is needed only for training on 401 synthetic scenes.
+          - Cut per-scene inference time by 277× over diffusion-based LYRA (2.8 h to 36 s) while staying within 0.8 dB of its PSNR on RE10K and DL3DV; achieved zero-shot generalization to three real-world benchmarks.
+
+      - name: "TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction"
+        url: https://arxiv.org/abs/2601.22615
+        start_date: 2025-10
+        end_date: 2026-02
+        summary: UC Davis. Zheng et al., WACV 2027 LVR Workshop (Oral).
+        highlights:
+          - Proposed a training-free memory update rule for streaming 3D reconstruction that combines temporal state changes and observation–state alignment to compute token-wise update weights.
+          - Mitigated catastrophic forgetting in long sequences caused by uniform memory updates, without additional training or parameters and while maintaining the base model's speed (18 FPS).
+          - Reduced ATE by 43% vs. CUT3R on TUM-dynamics, limited reconstruction error growth from 50 to 250 frames to 1.33× vs. 3.8×, and achieved the lowest pose error on 1,000-frame sequences.
+
+      - name: LiDAR 3D Object Detection for Autonomous Driving
+        start_date: 2022-08
+        end_date: 2023-12
+        summary: Sun Yat-sen University. 4 journal publications, including 2 first-author papers (IEEE TMM, IEEE SPL).
+        highlights:
+          - Designed a bidirectional attention module to fuse raw-point and range-view features, providing dense range-view context for sparse points and improving Waymo mAP by 4.2 points over IA-SSD (IEEE TMM).
+          - Proposed a dual-channel PointNet++/Transformer backbone with density-aware center features for local and long-range geometry, improving KITTI cyclist AP by 4.18 over IA-SSD with ~4× fewer parameters than PDV (IEEE SPL).
+
+    Honors and Awards:
+      - title: GGCS Excellence Fellowship
+        awarder: Graduate Group in Computer Science, UC Davis
+        date: 2025, 2026
+
+      - title: National Scholarship for Master's Students
+        awarder: Ministry of Education of China
+        date: 2023
+
+      - title: Second Prize (South China Division)
+        awarder: China College IC Competition
+        date: 2023
+
+      - title: Outstanding Undergraduate Thesis Award
+        awarder: Sun Yat-sen University
+        date: 2022
+
+    Skills:
+      - name: Research Interests
+        icon: fa-solid fa-lightbulb
+        keywords: 3D Reconstruction, Novel View Synthesis, Geometric Representation Learning, 3D Gaussian Splatting
+
+      - name: Programming Languages
+        icon: fa-solid fa-code
+        keywords: Python, C/C++, CUDA
+
+      - name: Deep Learning & CV Frameworks
+        icon: fa-solid fa-layer-group
+        keywords: PyTorch, OpenPCDet, OpenCV, Open3D, Point Cloud Library (PCL), scikit-learn
+
+    Languages:
+      - name: Chinese Mandarin
+        summary: Native
+
+      - name: English
+        summary: Fluent

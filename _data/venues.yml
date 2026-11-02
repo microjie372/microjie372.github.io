@@ -1,0 +1,27 @@
+# Badge colors for the "abbr" field in _bibliography/papers.bib (warm palette, white text).
+"arXiv":
+  url: https://arxiv.org/
+  color: "#B24A28"
+
+"WACV-W":
+  color: "#7A3E5C"
+
+"PRICAI":
+  url: https://www.pricai.org/
+  color: "#93600E"
+
+"TMM":
+  url: https://signalprocessingsociety.org/publications-resources/ieee-transactions-multimedia
+  color: "#2F6F6A"
+
+"SPL":
+  url: https://signalprocessingsociety.org/publications-resources/ieee-signal-processing-letters
+  color: "#355C7D"
+
+"Sensors":
+  url: https://ieee-sensors.org/sensors-journal/
+  color: "#56652A"
+
+"PRL":
+  url: https://www.sciencedirect.com/journal/pattern-recognition-letters
+  color: "#6B4F3A"

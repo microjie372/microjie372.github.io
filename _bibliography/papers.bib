@@ -1,0 +1,128 @@
+---
+---
+
+@article{zheng2026rdgsplat,
+  abbr          = {arXiv},
+  bibtex_show   = {true},
+  title         = {RDGSplat: Render-Dedicated Geometry for Novel View Synthesis},
+  author        = {Zheng, Zhijie and Xiang, Xinhao and Zhang, Jiawei},
+  journal       = {arXiv preprint arXiv:2610.09173},
+  year          = {2026},
+  month         = {oct},
+  arxiv         = {2610.09173},
+  pdf           = {https://arxiv.org/pdf/2610.09173},
+  preview       = {rdgsplat.jpg},
+  selected      = {true},
+  abstract      = {Recent 3D foundation models extend to novel view synthesis by carrying a Gaussian head on the representation they already use for reconstruction. However, their rendering quality lags far behind their reconstruction accuracy, because the renderer reads a geometry and a representation that are both optimized for metric reconstruction. Prior methods alleviate this by updating the backbone weights, but they thereby sacrifice the metric predictions the model was built for. To this end, we propose RDGSplat, which decodes a geometry dedicated to rendering from a frozen 3D foundation model while keeping its metric predictions exact. In particular, we devise Render-Dedicated Geometry Decoding, which duplicates the pretrained decoders and optimizes the duplicates under photometric supervision alone. Then, a Target-Pose Conditioned Adapter is introduced to adapt the representation those decoders read towards rendering, conditioned on the predicted target pose. Extensive experiments show that RDGSplat improves novel view synthesis for three feed-forward models of two architectures on four benchmarks, with every pretrained weight frozen. On RE10K, it raises WM2.0 from 20.918 to 25.149dB by training 205.5M added parameters against a frozen 1.4B backbone, and leaves its predicted depth and pose unchanged.}
+}
+
+@article{zheng2026prism,
+  abbr          = {arXiv},
+  bibtex_show   = {true},
+  title         = {PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling},
+  author        = {Zheng, Zhijie and Xiang, Xinhao and Zhang, Jiawei},
+  journal       = {arXiv preprint arXiv:2606.25430},
+  year          = {2026},
+  month         = {jun},
+  arxiv         = {2606.25430},
+  pdf           = {https://arxiv.org/pdf/2606.25430},
+  code          = {https://github.com/microjie372/PRISM},
+  preview       = {prism.jpg},
+  selected      = {true},
+  abstract      = {Reconstructing 3D scenes from a single image is a fundamental challenge in computer vision, with broad applications in virtual reality, robotics, and content creation. Recent methods achieve outstanding performance by leveraging camera-controlled video diffusion models, but rely on iterative diffusion sampling, which greatly limits their practical deployment. We observe that geometric forward warping alone can cover the majority of a target view directly from the input image, with only a compact residual left for the encoder to correct. Motivated by this observation, we propose PRISM, a feed-forward framework that decomposes multi-view latent prediction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling required at inference. To enable generalization from purely synthetic training data, we devise a two-stage training strategy combining latents supervised distillation for geometric generalization and perceptual fine-tuning for appearance quality optimization. Extensive experiments on three benchmarks demonstrate that PRISM achieves competitive reconstruction quality compared with diffusion-based methods, while reducing inference time dramatically to only 36 seconds per scene.}
+}
+
+@inproceedings{zheng2027ttsa3r,
+  abbr          = {WACV-W},
+  bibtex_show   = {true},
+  title         = {TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction},
+  author        = {Zheng, Zhijie and Xiang, Xinhao and Zhang, Jiawei},
+  booktitle     = {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV) Workshop on Latent Visual Reasoning},
+  year          = {2027},
+  arxiv         = {2601.22615},
+  pdf           = {https://arxiv.org/pdf/2601.22615},
+  code          = {https://github.com/anonus2357/ttsa3r},
+  preview       = {ttsa3r.jpg},
+  award         = {Accepted for an oral presentation at the WACV 2027 Workshop on Latent Visual Reasoning (LVR).},
+  award_name    = {Oral},
+  selected      = {true},
+  abstract      = {Streaming recurrent models enable efficient 3D reconstruction by maintaining persistent state representations. However, they suffer from catastrophic forgetting over long sequences due to balancing historical information with new observations. Recent methods alleviate this by deriving adaptive signals from the attention perspective, but they operate on single dimensions without considering temporal and spatial consistency. To this end, we propose a training-free framework termed TTSA3R that leverages both temporal state evolution and spatial observation quality for adaptive state updates in 3D reconstruction. In particular, we devise a Temporal Adaptive Update Module that regulates update magnitude by analyzing temporal state evolution patterns. Then, a Spatial Context Update Module is introduced to localize spatial regions that require updates through observation-state alignment and observation changes. These complementary signals are finally fused to determine the state updating strategies. Extensive experiments show that TTSA3R achieves competitive performance on standard short-sequence benchmarks and provides substantially stronger robustness on extended sequences. On NRGBD, as sequences extend from 50 to 250 frames, TTSA3R exhibits only a 1.33× error increase, compared with 3.8× degradation for CUT3R. This highlights the practical value of temporal-spatial adaptive updates for long-term reconstruction stability.}
+}
+
+@inproceedings{zheng2026unipt,
+  abbr          = {PRICAI},
+  bibtex_show   = {true},
+  title         = {UniPT: A Unified Representation Pre-training for Multi-dataset 3D Object Detection},
+  author        = {Zheng, Zhijie and Wang, Chenghao and Huang, Zhicong and Lin, Kang and Zhou, Wei and Qiu, Zhongyuan and Zhao, Yali and Qin, Huan and Chen, Yifei and Chen, Dihu},
+  booktitle     = {PRICAI 2025: Trends in Artificial Intelligence},
+  series        = {Lecture Notes in Computer Science},
+  pages         = {216--231},
+  publisher     = {Springer Nature Singapore},
+  year          = {2026},
+  month         = {may},
+  doi           = {10.1007/978-981-95-7084-3_14},
+  html          = {https://link.springer.com/chapter/10.1007/978-981-95-7084-3_14},
+  code          = {https://github.com/microjie372/UniPT},
+  preview       = {unipt.jpg},
+  note          = {Co-first author. Work done during an internship at Beijing Novauto Technology.},
+  selected      = {true},
+  abstract      = {Current multi-dataset 3D object detection pipelines directly train the detectors from scratch, which achieves suboptimal performance owing to intrinsic discrepancies between various scenarios. In this paper, we observe that there are underlying shared spatial and semantic characteristics that can be excavated in a self-supervised and fully-supervised manner. Motivated by this, we propose a novel pre-training method (UniPT) with geometry-aware and semantic-aware supervision to obtain a universal representation of multiple datasets, thus reducing the vast differences. Concretely, we firstly perform the reconstruction of point cloud and point density estimation. Then, the occupancy prediction and classification guidance are provided in semantic-aware supervision. Moreover, we devise a cross-dataset integration scheme to minimize the differences of dataset-level features between domains. Extensive experiments on Waymo Open Dataset (WOD), nuScenes and KITTI with consolidation settings illustrate the effectiveness of our method. It is notable that UniPT surpasses the previous work Uni3D by 2.29 mAPH (L1) on WOD, 1.45 mAP (BEV) on nuScenes and 2.08 mAP (3D) on KITTI.}
+}
+
+@article{zheng2025rafdet,
+  abbr          = {TMM},
+  bibtex_show   = {true},
+  title         = {RAFDet: Range View Augmented Fusion Network for Point-Based 3D Object Detection},
+  author        = {Zheng, Zhijie and Huang, Zhicong and Zhao, Jingwen and Lin, Kang and Hu, Haifeng and Chen, Dihu},
+  journal       = {IEEE Transactions on Multimedia},
+  volume        = {27},
+  pages         = {4167--4180},
+  year          = {2025},
+  doi           = {10.1109/TMM.2025.3535289},
+  code          = {https://github.com/microjie372/RAFDet},
+  preview       = {rafdet.jpg},
+  selected      = {true},
+  abstract      = {In recent years, point-based methods have achieved promising performance on 3D object detection task. Although effective, they still suffer from the inherent sparsity of point cloud, which makes it challenging to distinguish objects with backgrounds only relying on the view of raw point. To this end, we propose a straightforward yet effective multi-view fusion network termed RAFDet to alleviate this issue. The core idea of our method lies in combining the merits of raw point and its range view to enhance the representation learning for sparse point cloud, thus mitigating the sparsity problem and boosting the detection performance. In particular, we introduce a novel bidirectional attentive fusion module to equip sparse point with interacted fine-grained semantic clues during feature learning process. Then, we devise the range-view augmented fusion module to fully exploit the supplementary relationship between different perspectives with the aim of enhancing original point-view features. In the end, a single-stage detection head is utilized to predict final 3D bounding boxes based on the enhanced semantics. We have evaluated our method on the popular KITTI Dataset, DAIR-V2X Dataset and Waymo Open Dataset. Experimental results on the above three datasets demonstrate the effectiveness and robustness of our approach in terms of detection performance and model complexity.}
+}
+
+@article{huang2024hybridpillars,
+  abbr          = {Sensors},
+  bibtex_show   = {true},
+  title         = {HybridPillars: Hybrid Point-Pillar Network for Real-Time Two-Stage 3-D Object Detection},
+  author        = {Huang, Zhicong and Huang, Yuxiao and Zheng, Zhijie and Hu, Haifeng and Chen, Dihu},
+  journal       = {IEEE Sensors Journal},
+  volume        = {24},
+  number        = {22},
+  pages         = {38318--38328},
+  year          = {2024},
+  month         = {nov},
+  doi           = {10.1109/JSEN.2024.3468646},
+  code          = {https://github.com/huangzhicong3/HybridPillars}
+}
+
+@article{zheng2023dtssd,
+  abbr          = {SPL},
+  bibtex_show   = {true},
+  title         = {DTSSD: Dual-Channel Transformer-Based Network for Point-Based 3D Object Detection},
+  author        = {Zheng, Zhijie and Huang, Zhicong and Zhao, Jingwen and Hu, Haifeng and Chen, Dihu},
+  journal       = {IEEE Signal Processing Letters},
+  volume        = {30},
+  pages         = {798--802},
+  year          = {2023},
+  doi           = {10.1109/LSP.2023.3283468},
+  preview       = {dtssd.jpg},
+  abstract      = {In the field of 3D object detection, previous methods mainly utilize one channel feature encoding network to extract point-wise features. Despite the effectiveness, we find that only leveraging one channel encoding network is not sufficient and impedes the detection performance. To this end, we propose a dual-channel transformer-based feature encoding network, which integrates both set abstraction layer and transformer block as backbone. It enables the model to exploit fine-grained as well as long-range contextual information of objects, thus providing complementary relationship of two methods. In addition, a centroid estimation module is introduced to obtain powerful representation of the whole object. Finally, considering the significance of point density, which is crucial for detection performance, we propose a central density-aware enhancement module to equip center features with distinct density features. Experimental results on KITTI dataset show the effectiveness of our proposed method.}
+}
+
+@article{huang2023psadet3d,
+  abbr          = {PRL},
+  bibtex_show   = {true},
+  title         = {PSA-Det3D: Pillar Set Abstraction for 3D Object Detection},
+  author        = {Huang, Zhicong and Zheng, Zhijie and Zhao, Jingwen and Hu, Haifeng and Wang, Zixin and Chen, Dihu},
+  journal       = {Pattern Recognition Letters},
+  volume        = {168},
+  pages         = {138--145},
+  year          = {2023},
+  month         = {apr},
+  doi           = {10.1016/j.patrec.2023.03.016}
+}

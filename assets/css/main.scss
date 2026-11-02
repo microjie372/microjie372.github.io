@@ -1,43 +1,29 @@
 ---
+# Local override of the al_folio_core main.scss: same partials, plus the site's own "custom" partial last.
 ---
+@charset "utf-8";
 
-/*
- * This file controls what is imported from /_sass
- *
- * Note that the files are processed in the order they are imported, so they are partly
-   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
- */
+@use "sass:math";
+@use "sass:string";
 
-@import
-    "vendor/breakpoint/breakpoint",
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
 
-    "themes",
-    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
-    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+@use "themes";
+@use "layout";
 
-    "include/mixins",
-    "vendor/susy/susy",
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
 
-    "layout/reset",
-    "layout/base",
+@use "tabs";
+@use "teachings";
+@use "typograms";
 
-    "include/utilities",
-    "layout/tables",
-    "layout/buttons",
-    "layout/notices",
-    "layout/masthead",
-    "layout/navigation",
-    "layout/footer",
-    "syntax",
-
-    "layout/forms",
-
-    "layout/page",
-    "layout/archive",
-    "layout/sidebar",
-    "layout/json_cv",
-
-    "vendor/font-awesome/fontawesome",
-    "vendor/font-awesome/solid",
-    "vendor/font-awesome/brands"
-;
+// Site-specific look (fonts, cards, warm accents). Keep last so it wins over theme defaults.
+@use "custom";
