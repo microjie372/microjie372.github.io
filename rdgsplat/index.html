@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RDGSplat: Render-Dedicated Geometry for Novel View Synthesis - Zhijie Zheng, Xinhao Xiang, Jiawei Zhang</title>
+  <meta name="description" content="RDGSplat decodes a geometry dedicated to rendering from a frozen 3D foundation model, improving novel view synthesis while keeping its metric depth and pose predictions unchanged.">
+  <meta name="author" content="Zhijie Zheng, Xinhao Xiang, Jiawei Zhang">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="RDGSplat: Render-Dedicated Geometry for Novel View Synthesis">
+  <meta property="og:description" content="RDGSplat decodes a geometry dedicated to rendering from a frozen 3D foundation model, improving novel view synthesis while keeping its metric depth and pose predictions unchanged.">
+  <meta property="og:url" content="https://microjie372.github.io/rdgsplat/">
+  <meta property="og:image" content="https://microjie372.github.io/rdgsplat/images/teaser.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RDGSplat: Render-Dedicated Geometry for Novel View Synthesis">
+  <meta name="twitter:description" content="RDGSplat decodes a geometry dedicated to rendering from a frozen 3D foundation model, improving novel view synthesis while keeping its metric depth and pose predictions unchanged.">
+  <meta name="twitter:image" content="https://microjie372.github.io/rdgsplat/images/teaser.jpg">
+
+  <meta name="citation_title" content="RDGSplat: Render-Dedicated Geometry for Novel View Synthesis">
+  <meta name="citation_author" content="Zheng, Zhijie">
+  <meta name="citation_author" content="Xiang, Xinhao">
+  <meta name="citation_author" content="Zhang, Jiawei">
+  <meta name="citation_publication_date" content="2026/10/06">
+  <meta name="citation_arxiv_id" content="2610.09173">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2610.09173">
+
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="../project-static/css/bulma.min.css">
+  <link rel="stylesheet" href="../project-static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script defer src="../project-static/js/index.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "RDGSplat: Render-Dedicated Geometry for Novel View Synthesis",
+  "description": "RDGSplat decodes a geometry dedicated to rendering from a frozen 3D foundation model, improving novel view synthesis while keeping its metric depth and pose predictions unchanged.",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Zhijie Zheng",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Xinhao Xiang",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Jiawei Zhang",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    }
+  ],
+  "datePublished": "2026-10-06",
+  "url": "https://microjie372.github.io/rdgsplat/",
+  "image": "https://microjie372.github.io/rdgsplat/images/teaser.jpg",
+  "abstract": "Recent 3D foundation models extend to novel view synthesis by carrying a Gaussian head on the representation they already use for reconstruction. However, their rendering quality lags far behind their reconstruction accuracy, because the renderer reads a geometry and a representation that are both optimized for metric reconstruction. Prior methods alleviate this by updating the backbone weights, but they thereby sacrifice the metric predictions the model was built for. To this end, we propose RDGSplat, which decodes a geometry dedicated to rendering from a frozen 3D foundation model while keeping its metric predictions exact. In particular, we devise Render-Dedicated Geometry Decoding, which duplicates the pretrained decoders and optimizes the duplicates under photometric supervision alone. Then, a Target-Pose Conditioned Adapter is introduced to adapt the representation those decoders read towards rendering, conditioned on the predicted target pose. Extensive experiments show that RDGSplat improves novel view synthesis for three feed-forward models of two architectures on four benchmarks, with every pretrained weight frozen. On RE10K, it raises WM2.0 from 20.918 to 25.149 dB by training 205.5 M added parameters against a frozen 1.4 B backbone, and leaves its predicted depth and pose unchanged.",
+  "isAccessibleForFree": true,
+  "sameAs": "https://arxiv.org/abs/2610.09173"
+}
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View more works">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="../ttsa3r/" class="work-item">
+          <div class="work-info">
+            <h5>TTSA3R</h5>
+            <p>Training-free temporal-spatial adaptive state updates for streaming 3D reconstruction.</p>
+            <span class="work-venue">WACV 2027 LVR Workshop (Oral)</span>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="../prism/" class="work-item">
+          <div class="work-info">
+            <h5>PRISM</h5>
+            <p>Feed-forward single-image 3D reconstruction via geometric warp-residual modeling.</p>
+            <span class="work-venue">arXiv 2026</span>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="../publications/" class="work-item">
+          <div class="work-info">
+            <h5>All Publications</h5>
+            <p>The full publication list on Zhijie Zheng's homepage.</p>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">RDGSplat: Render-Dedicated Geometry for Novel View Synthesis</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://microjie372.github.io/" target="_blank" rel="noopener">Zhijie Zheng</a>,</span>
+              <span class="author-block"><a href="https://shanexiangh.github.io/xinhao-xiang/" target="_blank" rel="noopener">Xinhao Xiang</a>,</span>
+              <span class="author-block"><a href="https://jiaweizhang.net/" target="_blank" rel="noopener">Jiawei Zhang</a></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of California, Davis<br>arXiv 2026</span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2610.09173" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2610.09173" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <p>
+          <a href="images/teaser.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/teaser.jpg" alt="RDGSplat renderings compared with WorldMirror 2.0, gains across backbones, and the training setup" class="blend-img-background center-image" style="max-width: 100%; height: auto;" /></a>
+        </p>
+        <br>
+        <p>
+          The rendering quality of 3D foundation models lags far behind their reconstruction accuracy, because the renderer reads a geometry and a representation that are both optimized for metric reconstruction. Prior methods update the backbone weights, which sacrifices the metric predictions the model was built for. RDGSplat keeps every pretrained weight frozen and adds a geometry dedicated to rendering. (a) On RE10K scenes from identical context views, WorldMirror 2.0 (WM2.0) exhibits severe rendering artifacts, while RDGSplat achieves superior novel view synthesis. (b) The gain holds for three feed-forward models of two architectures, under both random and pretrained initialization. (c) RDGSplat optimizes 205.5 M parameters against a frozen 1.4 B backbone under photometric supervision alone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent 3D foundation models extend to novel view synthesis by carrying a Gaussian head on the representation they already use for reconstruction. However, their rendering quality lags far behind their reconstruction accuracy, because the renderer reads a geometry and a representation that are both optimized for metric reconstruction. Prior methods alleviate this by updating the backbone weights, but they thereby sacrifice the metric predictions the model was built for. To this end, we propose RDGSplat, which decodes a geometry dedicated to rendering from a frozen 3D foundation model while keeping its metric predictions exact. In particular, we devise Render-Dedicated Geometry Decoding, which duplicates the pretrained decoders and optimizes the duplicates under photometric supervision alone. Then, a Target-Pose Conditioned Adapter is introduced to adapt the representation those decoders read towards rendering, conditioned on the predicted target pose. Extensive experiments show that RDGSplat improves novel view synthesis for three feed-forward models of two architectures on four benchmarks, with every pretrained weight frozen. On RE10K, it raises WM2.0 from 20.918 to 25.149 dB by training 205.5 M added parameters against a frozen 1.4 B backbone, and leaves its predicted depth and pose unchanged.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Two Geometries of a Single Scene</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/two_geometries.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/two_geometries.jpg" alt="Metric geometry and render-dedicated geometry of one scene with the views rendered from each" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              A geometry may be scored under two criteria. A <em>metric geometry</em> is scored against the physical scene, whereas a <em>render-dedicated geometry</em> is scored on novel view synthesis quality, and geometric accuracy does not ensure that primitives render well from a new view. Both geometries above are decoded from the same frozen backbone and the same context views. The metric geometry forms dense, solid surfaces, and the views rendered from it leave the image borders empty and blur the scene. The render-dedicated geometry spreads these surfaces into thin layers, from which the full corridor is rendered.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Overall Framework</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/overview.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/overview.jpg" alt="RDGSplat framework: two evaluations of a frozen backbone, metric heads, TCA and RDGD" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              RDGSplat evaluates the frozen backbone twice. The first evaluation spans the context and target views, stays unmodified and feeds the pretrained heads, so the predicted depth, camera poses and pointmaps are identical to the pretrained model's by construction. The second evaluation spans the context views alone and is adapted by the Target-Pose Conditioned Adapter (TCA). From it, Render-Dedicated Geometry Decoding (RDGD) decodes a render depth and per-primitive attributes, which the rasterizer renders into the target view. No camera parameters are given as input.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Render-Dedicated Geometry Decoding</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/rdgd.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/rdgd.jpg" alt="RDGD: duplicated depth and Gaussian decoders and the residual pose head" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              RDGD duplicates two pretrained decoders, the depth head and the Gaussian decoder (a). Each duplicate is initialized with the parameters of its source and optimized under photometric supervision alone, while the source remains frozen. The render-dedicated geometry thus comprises not only where each primitive lies, but also its scale, rotation and opacity.
+            </p>
+            <p>
+              Fine-tuning the camera head under photometric supervision leads to severe degradation of target-view pose accuracy, because a primitive and a camera moving together along the viewing direction project to nearly the same pixels. RDGD therefore keeps the pretrained pose as a fixed anchor and learns only a penalized residual on its translation (b).
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Target-Pose Conditioned Adapter</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/tca.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/tca.jpg" alt="TCA: condition from Plucker rays, high-frequency content and projected state, injected into the backbone" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              The tokens the duplicated decoders read are still produced by the frozen backbone for reconstruction. TCA adapts them within the second evaluation alone, at sites distributed over the patch encoder and the cross-view blocks, so that every subsequent layer transforms the adaptation. Each site carries a block initialized from the layer it adapts, which joins the residual stream through a learned scale initialized close to zero. The condition combines Pl&uuml;cker rays, high-frequency content and a projected state. The projected state records where the primitive of each token appears in the target view, and it is the only target-dependent term, so the render-dedicated geometry is tailored to each target view.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Novel View Synthesis</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/table_nvs.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_nvs.png" alt="Table 1: two-view novel view synthesis on RE10K, ACID, DL3DV and DTU" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              We train on RE10K and test zero-shot on ACID, DL3DV and the object-centric DTU, rendering target views from predicted rather than ground-truth poses. RDGSplat improves every backbone on all four benchmarks and under all three metrics, while updating no pretrained weight. With RDGSplat attached, WM2.0 also outperforms pixelSplat and MVSplat on RE10K and DTU, although both are trained for rendering end to end and receive ground-truth poses at inference.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Metric Predictions Stay Exact</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/table_metric.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_metric.png" alt="Table 2: metric geometry on KITTI video depth and RE10K two-view pose" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              The metric geometry is produced by the frozen depth and camera heads of WM2.0 while RDGSplat is attached, so WM2.0 shares one row with and without it. Each predicted frame on the depth benchmark is identical to the pretrained model's, and the pose AUC agrees to four decimal places. One model thus serves both measurement and rendering, with no dedicated renderer beside it.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Cost and Number of Context Views</h2>
+            <div class="level-set has-text-justified">
+            <div class="columns is-vcentered">
+              <div class="column"><a href="images/table_cost.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_cost.png" alt="Table 4: training efficiency" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a></div>
+              <div class="column"><a href="images/table_views.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_views.png" alt="Table 5: novel view synthesis from two to ten context views" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a></div>
+            </div>
+            <p>
+              RDGSplat optimizes 205.5 M parameters, 14.7% of the 1.4 B backbone, and updates none of its pretrained weights. Only 39.1 M of those parameters are instantiated from scratch, while the remaining 166.4 M duplicate modules the backbone already carries. At two context views, the render latency rises from 262.3 to 688.5 ms, while peak memory rises by at most 0.06 GB. As the number of context views grows from two to ten, RDGSplat surpasses the frozen backbone under every metric at every count, and three context views already exceed the quality the backbone attains from ten under all three metrics.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Effect of Each Component</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/table_ablation.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_ablation.png" alt="Table 3: ablation of RDGD and TCA on RE10K and ACID" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              With WM2.0 as the baseline, each module improves rendering on its own, and integrating both achieves the best performance on RE10K and ACID under all three metrics. Under each metric, their separate gains sum to more than they attain together, which shows that the two modules overlap in part, as both alter the primitives.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Qualitative Results</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/qual_re10k.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/qual_re10k.jpg" alt="WM2.0, RDGSplat and ground truth on RE10K test scenes" class="blend-img-background center-image" style="max-width: 75%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              Scenes are sampled at random from the RE10K test split. The leftmost column shows the two context views, and two held-out target views follow. WM2.0 leaves the image border empty and blurs the surfaces it does render, while RDGSplat renders the full frame and closely follows the structure and color of the ground truth.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@article{zheng2026rdgsplat,
+  title   = {RDGSplat: Render-Dedicated Geometry for Novel View Synthesis},
+  author  = {Zheng, Zhijie and Xiang, Xinhao and Zhang, Jiawei},
+  journal = {arXiv preprint arXiv:2610.09173},
+  year    = {2026}
+}</code></pre>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer.<br>
+              This website is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

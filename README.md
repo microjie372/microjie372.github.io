@@ -17,6 +17,7 @@ Built with [Jekyll](https://jekyllrb.com/) and the [al-folio](https://github.com
 | Social icons | `_data/socials.yml` |
 | Colors (light and dark) | `assets/_sass/_themes.scss` |
 | Fonts, cards, spacing | `assets/_sass/_custom.scss`; font files are loaded in `_config.yml` (`google_fonts`) |
+| Project pages | `ttsa3r/`, `prism/`, `rdgsplat/` (`index.html` plus `images/`), shared CSS and JS in `project-static/` |
 | Site-wide settings | `_config.yml` |
 
 ## Deployment
