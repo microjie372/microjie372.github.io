@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction - Zhijie Zheng, Xinhao Xiang, Jiawei Zhang</title>
+  <meta name="description" content="TTSA3R mitigates catastrophic forgetting in streaming recurrent 3D reconstruction through training-free, per-token state updates driven by temporal state evolution and spatial observation changes.">
+  <meta name="author" content="Zhijie Zheng, Xinhao Xiang, Jiawei Zhang">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction">
+  <meta property="og:description" content="TTSA3R mitigates catastrophic forgetting in streaming recurrent 3D reconstruction through training-free, per-token state updates driven by temporal state evolution and spatial observation changes.">
+  <meta property="og:url" content="https://microjie372.github.io/ttsa3r/">
+  <meta property="og:image" content="https://microjie372.github.io/ttsa3r/images/teaser.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction">
+  <meta name="twitter:description" content="TTSA3R mitigates catastrophic forgetting in streaming recurrent 3D reconstruction through training-free, per-token state updates driven by temporal state evolution and spatial observation changes.">
+  <meta name="twitter:image" content="https://microjie372.github.io/ttsa3r/images/teaser.jpg">
+
+  <meta name="citation_title" content="TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction">
+  <meta name="citation_author" content="Zheng, Zhijie">
+  <meta name="citation_author" content="Xiang, Xinhao">
+  <meta name="citation_author" content="Zhang, Jiawei">
+  <meta name="citation_publication_date" content="2026/01/30">
+  <meta name="citation_conference_title" content="WACV 2027 Workshop on Latent Visual Reasoning">
+  <meta name="citation_arxiv_id" content="2601.22615">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2601.22615">
+
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="../project-static/css/bulma.min.css">
+  <link rel="stylesheet" href="../project-static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script defer src="../project-static/js/index.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction",
+  "description": "TTSA3R mitigates catastrophic forgetting in streaming recurrent 3D reconstruction through training-free, per-token state updates driven by temporal state evolution and spatial observation changes.",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Zhijie Zheng",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Xinhao Xiang",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Jiawei Zhang",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    }
+  ],
+  "datePublished": "2026-01-30",
+  "url": "https://microjie372.github.io/ttsa3r/",
+  "image": "https://microjie372.github.io/ttsa3r/images/teaser.jpg",
+  "abstract": "Streaming recurrent models enable efficient 3D reconstruction by maintaining persistent state representations. However, they suffer from catastrophic forgetting over long sequences due to balancing historical information with new observations. Recent methods alleviate this by deriving adaptive signals from the attention perspective, but they operate on single dimensions without considering temporal and spatial consistency. To this end, we propose a training-free framework termed TTSA3R that leverages both temporal state evolution and spatial observation quality for adaptive state updates in 3D reconstruction. In particular, we devise a Temporal Adaptive Update Module that regulates update magnitude by analyzing temporal state evolution patterns. Then, a Spatial Context Update Module is introduced to localize spatial regions that require updates through observation-state alignment and observation changes. These complementary signals are finally fused to determine the state updating strategies. Extensive experiments show that TTSA3R achieves competitive performance on standard short-sequence benchmarks and provides substantially stronger robustness on extended sequences. On NRGBD, as sequences extend from 50 to 250 frames, TTSA3R exhibits only a 1.33&times; error increase, compared with 3.8&times; degradation for CUT3R. This highlights the practical value of temporal-spatial adaptive updates for long-term reconstruction stability.",
+  "isAccessibleForFree": true,
+  "sameAs": "https://arxiv.org/abs/2601.22615"
+}
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View more works">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="../prism/" class="work-item">
+          <div class="work-info">
+            <h5>PRISM</h5>
+            <p>Feed-forward single-image 3D reconstruction via geometric warp-residual modeling.</p>
+            <span class="work-venue">arXiv 2026</span>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="../rdgsplat/" class="work-item">
+          <div class="work-info">
+            <h5>RDGSplat</h5>
+            <p>Render-dedicated geometry for novel view synthesis on a frozen 3D foundation model.</p>
+            <span class="work-venue">arXiv 2026</span>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="../publications/" class="work-item">
+          <div class="work-info">
+            <h5>All Publications</h5>
+            <p>The full publication list on Zhijie Zheng's homepage.</p>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://microjie372.github.io/" target="_blank" rel="noopener">Zhijie Zheng</a>,</span>
+              <span class="author-block"><a href="https://shanexiangh.github.io/xinhao-xiang/" target="_blank" rel="noopener">Xinhao Xiang</a>,</span>
+              <span class="author-block"><a href="https://jiaweizhang.net/" target="_blank" rel="noopener">Jiawei Zhang</a></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of California, Davis<br>WACV 2027 Workshop on Latent Visual Reasoning (LVR), <strong>Oral</strong></span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2601.22615" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/anonus2357/ttsa3r" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2601.22615" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <p>
+          <a href="images/teaser.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/teaser.jpg" alt="Reconstructions from long input sequences by CUT3R, TTT3R and TTSA3R" class="blend-img-background center-image" style="max-width: 100%; height: auto;" /></a>
+        </p>
+        <br>
+        <p>
+          Streaming recurrent models reconstruct a scene frame by frame while keeping a fixed-size persistent state, but over long sequences they suffer from catastrophic forgetting. A uniform state update lets every new observation overwrite what the state has accumulated, which leads to geometric drift. TTSA3R replaces it with a per-token update driven by two signals the model already computes: how each state token evolves over time, and whether the image regions it attends to are changing. No additional training or forward passes are required. In the figure, CUT3R with uniform updates suffers from severe pose drift and geometric distortions (left), TTT3R improves robustness but still exhibits artifacts (middle), and our method achieves a coherent reconstruction with accurate camera poses (right).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Streaming recurrent models enable efficient 3D reconstruction by maintaining persistent state representations. However, they suffer from catastrophic forgetting over long sequences due to balancing historical information with new observations. Recent methods alleviate this by deriving adaptive signals from the attention perspective, but they operate on single dimensions without considering temporal and spatial consistency. To this end, we propose a training-free framework termed TTSA3R that leverages both temporal state evolution and spatial observation quality for adaptive state updates in 3D reconstruction. In particular, we devise a Temporal Adaptive Update Module that regulates update magnitude by analyzing temporal state evolution patterns. Then, a Spatial Context Update Module is introduced to localize spatial regions that require updates through observation-state alignment and observation changes. These complementary signals are finally fused to determine the state updating strategies. Extensive experiments show that TTSA3R achieves competitive performance on standard short-sequence benchmarks and provides substantially stronger robustness on extended sequences. On NRGBD, as sequences extend from 50 to 250 frames, TTSA3R exhibits only a 1.33&times; error increase, compared with 3.8&times; degradation for CUT3R. This highlights the practical value of temporal-spatial adaptive updates for long-term reconstruction stability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Framework Overview</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/overview.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/overview.jpg" alt="TTSA3R framework: encoder, decoders, TAUM, SCUM and per-token state update" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              A shared ViT encoder extracts visual tokens from the input frames, which interact with the persistent state via decoders to generate candidate states. Meanwhile, the Temporal Adaptive Update Module (TAUM) evaluates temporal state evolution across frames, and the Spatial Context Update Module (SCUM) measures spatial interaction between states and observations. Their temporal and spatial masks are combined to update the persistent state at per-token granularity, and task-specific heads predict depth maps, camera poses and pointmaps. Both signals are extracted from internal encoder and decoder representations, so TTSA3R requires no additional training or forward passes.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Temporal and Spatial Update Modules</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/scum.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/scum.jpg" alt="Spatial Context Update Module: cosine dissimilarity and cross-attention combined into a spatial mask" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              <em>TAUM</em> measures how much each candidate state token changes across consecutive frames, relative to the scene average. Tokens with minimal variation have likely converged and largely retain their historical representations, while tokens with significant variation are still being refined and receive larger updates.
+            </p>
+            <p>
+              A token may also change substantially because of unreliable estimates, even though the image regions it attends to remain unchanged. <em>SCUM</em>, shown above, therefore adds spatial awareness by multiplying cross-attention between state tokens and image tokens with the cosine dissimilarity of image features across consecutive frames, so that activation is high only when both attention and divergence are substantial. The final mask is the product of the two, and the largest updates occur only when temporal dynamics and spatial correspondence are both present.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Long-Sequence Robustness</h2>
+            <div class="level-set has-text-justified">
+            <div class="columns is-vcentered">
+              <div class="column"><a href="images/long_depth.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/long_depth.jpg" alt="Video depth error against sequence length on Bonn" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a></div>
+              <div class="column"><a href="images/long_pose.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/long_pose.jpg" alt="Camera pose error against sequence length on TUM-dynamics and ScanNet" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a></div>
+            </div>
+            <p>
+              <a href="images/long_recon.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/long_recon.jpg" alt="3D reconstruction accuracy against sequence length on NRGBD" class="blend-img-background center-image" style="max-width: 50%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              We track each task as sequences get longer, and the charts follow this order. For video depth on Bonn with metric depth accuracy, TTSA3R achieves the lowest Abs Rel and the highest &delta; &lt; 1.25 at every length from 50 to 500 frames. For camera pose on TUM-dynamics and ScanNet, it achieves the lowest pose error at all sequence lengths up to 800 frames, and its margin over CUT3R widens as sequences grow. For 3D reconstruction on NRGBD, it exhibits only a 1.33&times; error increase as sequences extend from 50 to 250 frames, compared with 3.8&times; degradation for CUT3R.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Standard Benchmarks</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/table_depth.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_depth.png" alt="Table 1: video depth estimation on Sintel, Bonn and KITTI" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              <a href="images/table_pose.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_pose.png" alt="Table 2: camera pose estimation on Sintel, TUM-dynamics and ScanNet" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              On standard short sequences, TTSA3R remains competitive. Under per-sequence scale it achieves the best video depth among streaming methods on KITTI, and it remains competitive on the other two datasets, where StreamVGGT benefits from caching all past frames. Under metric scale it leads on Bonn. For camera pose, it achieves the lowest ATE among streaming methods on TUM-dynamics and ScanNet. On a single NVIDIA A6000 GPU, TTSA3R runs at 18.0 FPS with 6 GB of memory, comparable to TTT3R.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Effect of Each Component</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/table_ablation.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_ablation.png" alt="Table 3: ablation of TAUM and SCUM on Bonn and TUM-dynamics" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              Using CUT3R as the baseline, adding either module alone improves both depth and pose, and TAUM contributes the larger share, especially for pose estimation. The two modules together achieve the best performance on every metric shown.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Qualitative Results</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/qual_recon.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/qual_recon.jpg" alt="Qualitative comparison of 3D reconstruction by CUT3R, TTT3R and TTSA3R" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              <a href="images/qual_traj.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/qual_traj.jpg" alt="Predicted camera trajectories on TUM-dynamics by CUT3R, TTT3R and TTSA3R" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              CUT3R produces severely distorted geometry and inaccurate camera trajectories. Although TTT3R mitigates these issues, residual artifacts remain visible, while our method generates more coherent reconstructions. The lower row shows predicted trajectories on two TUM-dynamics sequences with moving persons, visualized along the two axes with maximum variance: gray dashed lines are ground truth and blue lines are predictions.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@article{zheng2026ttsa3r,
+  title   = {TTSA3R: Training-Free Temporal-Spatial Adaptive Persistent State for Streaming 3D Reconstruction},
+  author  = {Zheng, Zhijie and Xiang, Xinhao and Zhang, Jiawei},
+  journal = {arXiv preprint arXiv:2601.22615},
+  year    = {2026},
+  note    = {Accepted to the WACV 2027 Workshop on Latent Visual Reasoning (LVR), Oral}
+}</code></pre>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer.<br>
+              This website is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

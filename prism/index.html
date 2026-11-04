@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling - Zhijie Zheng, Xinhao Xiang, Jiawei Zhang</title>
+  <meta name="description" content="PRISM decomposes single-image 3D reconstruction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling at inference and 36 seconds per scene.">
+  <meta name="author" content="Zhijie Zheng, Xinhao Xiang, Jiawei Zhang">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling">
+  <meta property="og:description" content="PRISM decomposes single-image 3D reconstruction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling at inference and 36 seconds per scene.">
+  <meta property="og:url" content="https://microjie372.github.io/prism/">
+  <meta property="og:image" content="https://microjie372.github.io/prism/images/teaser.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling">
+  <meta name="twitter:description" content="PRISM decomposes single-image 3D reconstruction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling at inference and 36 seconds per scene.">
+  <meta name="twitter:image" content="https://microjie372.github.io/prism/images/teaser.jpg">
+
+  <meta name="citation_title" content="PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling">
+  <meta name="citation_author" content="Zheng, Zhijie">
+  <meta name="citation_author" content="Xiang, Xinhao">
+  <meta name="citation_author" content="Zhang, Jiawei">
+  <meta name="citation_publication_date" content="2026/06/24">
+  <meta name="citation_arxiv_id" content="2606.25430">
+  <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2606.25430">
+
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="stylesheet" href="../project-static/css/bulma.min.css">
+  <link rel="stylesheet" href="../project-static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.5/css/academicons.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <script defer src="../project-static/js/index.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "headline": "PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling",
+  "description": "PRISM decomposes single-image 3D reconstruction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling at inference and 36 seconds per scene.",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Zhijie Zheng",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Xinhao Xiang",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    },
+    {
+      "@type": "Person",
+      "name": "Jiawei Zhang",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "University of California, Davis"
+      }
+    }
+  ],
+  "datePublished": "2026-06-24",
+  "url": "https://microjie372.github.io/prism/",
+  "image": "https://microjie372.github.io/prism/images/teaser.jpg",
+  "abstract": "Reconstructing 3D scenes from a single image is a fundamental challenge in computer vision, with broad applications in virtual reality, robotics, and content creation. Recent methods achieve outstanding performance by leveraging camera-controlled video diffusion models, but rely on iterative diffusion sampling, which greatly limits their practical deployment. We observe that geometric forward warping alone can cover the majority of a target view directly from the input image, with only a compact residual left for the encoder to correct. Motivated by this observation, we propose PRISM, a feed-forward framework that decomposes multi-view latent prediction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling required at inference. To enable generalization from purely synthetic training data, we devise a two-stage training strategy combining latents supervised distillation for geometric generalization and perceptual fine-tuning for appearance quality optimization. Extensive experiments on three benchmarks demonstrate that PRISM achieves competitive reconstruction quality compared with diffusion-based methods, while reducing inference time dramatically to only 36 seconds per scene.",
+  "isAccessibleForFree": true,
+  "sameAs": "https://arxiv.org/abs/2606.25430"
+}
+  </script>
+</head>
+<body>
+
+  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <div class="more-works-container">
+    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View more works">
+      <i class="fas fa-flask"></i>
+      More Works
+      <i class="fas fa-chevron-down dropdown-arrow"></i>
+    </button>
+    <div class="more-works-dropdown" id="moreWorksDropdown">
+      <div class="dropdown-header">
+        <h4>More Works</h4>
+        <button class="close-btn" onclick="toggleMoreWorks()" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="works-list">
+        <a href="../ttsa3r/" class="work-item">
+          <div class="work-info">
+            <h5>TTSA3R</h5>
+            <p>Training-free temporal-spatial adaptive state updates for streaming 3D reconstruction.</p>
+            <span class="work-venue">WACV 2027 LVR Workshop (Oral)</span>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="../rdgsplat/" class="work-item">
+          <div class="work-info">
+            <h5>RDGSplat</h5>
+            <p>Render-dedicated geometry for novel view synthesis on a frozen 3D foundation model.</p>
+            <span class="work-venue">arXiv 2026</span>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="../publications/" class="work-item">
+          <div class="work-info">
+            <h5>All Publications</h5>
+            <p>The full publication list on Zhijie Zheng's homepage.</p>
+          </div>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main id="main-content">
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling</h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><a href="https://microjie372.github.io/" target="_blank" rel="noopener">Zhijie Zheng</a>,</span>
+              <span class="author-block"><a href="https://shanexiangh.github.io/xinhao-xiang/" target="_blank" rel="noopener">Xinhao Xiang</a>,</span>
+              <span class="author-block"><a href="https://jiaweizhang.net/" target="_blank" rel="noopener">Jiawei Zhang</a></span>
+            </div>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">University of California, Davis<br>arXiv 2026</span>
+            </div>
+            <div class="column has-text-centered">
+              <div class="publication-links">
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2606.25430" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://github.com/microjie372/PRISM" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2606.25430" target="_blank" rel="noopener" class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <p>
+          <a href="images/teaser.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/teaser.jpg" alt="PRISM novel views, geometric warp coverage, and quality against inference time" class="blend-img-background center-image" style="max-width: 100%; height: auto;" /></a>
+        </p>
+        <br>
+        <p>
+          Camera-controlled video diffusion models achieve outstanding single-image 3D reconstruction, but iterative sampling across hundreds of video frames may take hours per scene. We observe that geometric forward warping alone can cover up to 90% of a target view when the target viewpoint stays close to the reference. PRISM therefore replaces the diffusion model at inference with a lightweight residual encoder that corrects this warped prior. (a) Given a single input image, PRISM synthesizes geometrically consistent novel views across diverse scenes. (b) Geometric forward warping covers most of a target view directly from the input. (c) PRISM achieves competitive reconstruction quality on RealEstate10K at 277&times; lower inference time cost than LYRA, taking 36 seconds per scene.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Reconstructing 3D scenes from a single image is a fundamental challenge in computer vision, with broad applications in virtual reality, robotics, and content creation. Recent methods achieve outstanding performance by leveraging camera-controlled video diffusion models, but rely on iterative diffusion sampling, which greatly limits their practical deployment. We observe that geometric forward warping alone can cover the majority of a target view directly from the input image, with only a compact residual left for the encoder to correct. Motivated by this observation, we propose PRISM, a feed-forward framework that decomposes multi-view latent prediction into a parameter-free geometric prior and a learned residual correction, with no diffusion sampling required at inference. To enable generalization from purely synthetic training data, we devise a two-stage training strategy combining latents supervised distillation for geometric generalization and perceptual fine-tuning for appearance quality optimization. Extensive experiments on three benchmarks demonstrate that PRISM achieves competitive reconstruction quality compared with diffusion-based methods, while reducing inference time dramatically to only 36 seconds per scene.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">From Diffusion Sampling to Geometric Reasoning</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/diffusion_vs_prism.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/diffusion_vs_prism.jpg" alt="LYRA pipeline with video diffusion compared with the PRISM pipeline" class="blend-img-background center-image" style="max-width: 85%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              LYRA (a) relies on a frozen video diffusion model to generate multi-view latents at inference, which a 3DGS decoder turns into 3D Gaussians. PRISM (b) replaces the diffusion model with a lightweight residual encoder that predicts corrections to a parameter-free geometric prior derived from monocular depth. Video diffusion still supervises training offline, but it is not needed at inference.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Geometric Warp-Residual Decomposition</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/overview.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/overview.jpg" alt="PRISM overview: depth estimation, forward warping, residual encoder and frozen 3DGS decoder" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              PRISM splits multi-view latent prediction into two parts. The <em>geometric prior</em> has no parameters: given monocular depth from MoGe, z-buffered forward splatting warps the reference latent to each target camera directly in the Cosmos video latent space, the representation that the supervision and the frozen decoder already use. Locations without valid warp coverage are filled with the reference latent.
+            </p>
+            <p>
+              The <em>residual encoder</em> takes the warped latent, the validity mask, the reference latent and Pl&uuml;cker ray embeddings, and predicts a residual correction for each view. It holds 26M parameters in 8 transformer blocks that alternate between per-view, cross-view and temporal attention, and it processes all views jointly to keep them geometrically consistent. The predicted latents are then decoded into a 3D scene by the frozen 33M 3DGS decoder adopted from LYRA, with no diffusion sampling.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Two-Stage Training</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/training.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/training.jpg" alt="Two-stage training: latents supervised distillation and perceptual fine-tuning" class="blend-img-background center-image" style="max-width: 80%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              PRISM is trained on 401 synthetic scenes from the LYRA dataset, with no real-world images or multi-view captures. Target latents are generated offline with Gen3C and the Cosmos VAE encoder. <em>Stage 1, latents supervised distillation (a)</em>, aligns intermediate features of the frozen decoder through a cosine similarity loss rather than matching raw latent values, since direct latent supervision leads to scene-specific memorization. <em>Stage 2, perceptual fine-tuning (b)</em>, then compares rendered images through an LPIPS and MSE loss to refine appearance.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Quantitative Results</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/table_main.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_main.png" alt="Table 1: comparison on RealEstate10K, DL3DV and Tanks-and-Temples" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              <a href="images/table_matched.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_matched.png" alt="Table 6: matched-protocol comparison against the official LYRA pipeline" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              All three benchmarks are unseen during training. PRISM learns from LYRA, whose latents supervise training, so LYRA sets the ceiling these numbers are read against. Baseline numbers in Table 1 are as published, under their own protocols, so we also re-evaluated LYRA's full pipeline with our own evaluation code (Table 6). There, LYRA exceeds PRISM on all three metrics on Tanks-and-Temples. On RealEstate10K, PRISM is ahead on PSNR and essentially tied on SSIM, while LYRA remains ahead on LPIPS. PRISM's contribution is therefore inference speed, not a uniform fidelity advantage over LYRA's generative pipeline.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Inference Time</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/time_breakdown.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/time_breakdown.jpg" alt="Per-component inference time of PRISM" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              On a single NVIDIA A6000 GPU, PRISM takes 36.2 seconds per scene, against approximately 2.8 hours for Gen3C on the same GPU. The frozen 3DGS decoder accounts for 35.04 seconds, 97% of the total. PRISM's three new components (MoGe depth estimation, geometric warp and residual encoder) together contribute only 1.18 seconds. The bottleneck has shifted away from diffusion sampling.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Effect of Each Component</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/table_ablation.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_ablation.png" alt="Table 2: ablation of the residual encoder and the two training stages on RE10K" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              We ablate each design choice on a randomly subsampled 40-scene RE10K split. Removing the residual encoder shows that the geometric warp prior alone cannot recover fine-grained appearance detail, and removing Stage 1 suggests that feature distillation provides a stable initialization that Stage 2 depends on. Stage 1 alone reaches the highest SSIM, and Stage 2 is what closes the perceptual gap, at a marginal SSIM cost.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hero is-small">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full">
+          <div class="content">
+            <h2 class="title is-3">Qualitative Results</h2>
+            <div class="level-set has-text-justified">
+            <p>
+              <a href="images/qual_real.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/qual_real.jpg" alt="Input, PRISM render and ground truth on real-world RE10K scenes" class="blend-img-background center-image" style="max-width: 100%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              <a href="images/qual_synthetic.jpg" target="_blank" rel="noopener" title="Open full size"><img src="images/qual_synthetic.jpg" alt="PRISM and LYRA novel views of a synthetic scene" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
+            </p>
+            <p>
+              On real-world scenes from RE10K (top), PRISM outputs align with the ground truth in structure, color and scene layout, despite being trained exclusively on synthetic data. Each column is a different scene, with rows showing the input image (Frame 1), the PRISM render (Frame 14) and the ground truth (Frame 14). On a synthetic scene from the training distribution (bottom), PRISM produces results visually comparable to LYRA without diffusion sampling at inference.
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <div class="bibtex-header">
+        <h2 class="title">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre id="bibtex-code"><code>@article{zheng2026prism,
+  title   = {PRISM: Feed-Forward Single-Image 3D Reconstruction via Geometric Warp-Residual Modeling},
+  author  = {Zheng, Zhijie and Xiang, Xinhao and Zhang, Jiawei},
+  journal = {arXiv preprint arXiv:2606.25430},
+  year    = {2026}
+}</code></pre>
+    </div>
+  </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank" rel="noopener">Nerfies</a> project page.
+              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer.<br>
+              This website is licensed under a <a rel="license noopener" href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
