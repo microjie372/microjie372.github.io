@@ -306,26 +306,6 @@
       <div class="columns is-centered">
         <div class="column is-full">
           <div class="content">
-            <h2 class="title is-3">Effect of Each Component</h2>
-            <div class="level-set has-text-justified">
-            <p>
-              <a href="images/table_ablation.png" target="_blank" rel="noopener" title="Open full size"><img src="images/table_ablation.png" alt="Table 2: ablation of the residual encoder and the two training stages on RE10K" class="blend-img-background center-image" style="max-width: 62%; height: auto;" loading="lazy" /></a>
-            </p>
-            <p>
-              We ablate each design choice on a randomly subsampled 40-scene RE10K split. Removing the residual encoder shows that the geometric warp prior alone cannot recover fine-grained appearance detail, and removing Stage 1 suggests that feature distillation provides a stable initialization that Stage 2 depends on. Stage 1 alone reaches the highest SSIM, and Stage 2 is what closes the perceptual gap, at a marginal SSIM cost.
-            </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section hero is-small">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered">
-        <div class="column is-full">
-          <div class="content">
             <h2 class="title is-3">Qualitative Results</h2>
             <div class="level-set has-text-justified">
             <p>
